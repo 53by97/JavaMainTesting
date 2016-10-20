@@ -1,0 +1,213 @@
+class Base extends Exception {}
+class Derived extends Base  {}
+ 
+public class Main {
+  public static void main(String args[]) {
+   // some other stuff
+   try {
+       // Some monitored code
+       throw new Derived();
+    }
+    catch(Base b)     { 
+       System.out.println("Caught base class exception"); 
+    }
+    catch(Derived d)  { 
+       System.out.println("Caught derived class exception"); 
+    }
+  }
+} 
+
+A. Caught base class exception
+B.Caught derived class exception
+C.Compiler Error because derived is not throwable
+D.Compiler Error because base class exception is caught before derived class  :: correct
+
+------------------------------------------------------------------------------------------------------------------------
+What is the return type of Constructors?
+a) int
+b) float
+c) void
+d) None of the mentioned :: correct
+------------------------------------------------------------------------------------------------------------------------
+
+public class BoolTest 
+{
+    public static void main(String [] args) 
+    {
+        int result = 0;
+
+        Boolean b1 = new Boolean("TRUE");
+        Boolean b2 = new Boolean("true");
+        Boolean b3 = new Boolean("tRuE");
+        Boolean b4 = new Boolean("false");
+
+        if (b1 == b2)  /* Line 10 */
+            result = 1;
+        if (b1.equals(b2) ) /* Line 12 */
+            result = result + 10;
+        if (b2 == b4)  /* Line 14 */
+            result = result + 100;
+        if (b2.equals(b4) ) /* Line 16 */
+            result = result + 1000;
+        if (b2.equals(b3) ) /* Line 18 */
+            result = result + 10000;
+
+        System.out.println("result = " + result);
+    }
+}
+A.0
+B. 1
+C.10
+D.10010  :: correct
+------------------------------------------------------------------------------------------------------------------------
+package com.test;
+public class MyClass {
+
+	public static Integer sum(Integer x, Integer y) {
+		return x+y;
+	}
+}
+
+
+package com.test;
+public class Test {
+	public static void main(String[] args){
+		MyClass myClass = null;
+		System.out.println(myClass.sum(2, 8));
+	}
+}
+a) Compilation error
+b) NullPointerException
+c) 10							:: correct
+d) None of the above
+
+------------------------------------------------------------------------------------------------------------------------
+public class Check {    
+
+	public static void main(String[] args) 
+	{
+		try 
+		{
+			badMethod();  
+			System.out.print("A");  
+		} 
+		catch (RuntimeException ex) /* Line 10 */
+		{ 
+			System.out.print("B"); 
+		} 
+		catch (Exception ex1) 
+		{ 
+			System.out.print("C"); 
+		} 
+		finally 
+		{
+			System.out.print("D"); 
+		} 
+		System.out.print("E"); 
+	} 
+
+	public static void badMethod() 
+	{ 
+		throw new RuntimeException(); 
+	} 
+}
+
+a) BE
+b) CDE
+c) CE
+d) BDE  :: correct
+------------------------------------------------------------------------------------------------------------------------
+TreeSet map = new TreeSet();
+map.add("one");
+map.add("two");
+map.add("three");
+map.add("four");
+map.add("one");
+Iterator it = map.iterator();
+while (it.hasNext() ) 
+{
+    System.out.print( it.next() + " " );
+}
+
+a)	one two three four
+b)	four three two one
+c)	four one three two :: correct
+d)	one two three four one
+------------------------------------------------------------------------------------------------------------------------
+
+package com.demo.test;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class TestMain {
+
+	public static void main(String[] args) {
+	Set<Integer> integerSet = new HashSet<Integer>();
+	List<Integer> integerList = new ArrayList<Integer>();
+		for(int i=0; i<5; i++){
+			integerSet.add(i);	
+			integerList.add(i);
+		}
+					
+	for(int i=0; i<integerSet.size(); i++){
+		integerSet.remove(i); 	
+		integerList.remove(i);
+	}
+				
+	System.out.println("Integer List "+integerList + " : " + "Integer set "+integerSet);
+			}
+}
+
+a) Integer List [] : Integer set [] 
+b) Integer List [1, 3] : Integer set [3, 4]  :: correct
+c) Integer List [1, 3] : Integer set [2, 3, 4] 
+d) Integer List [1, 3] : Integer set [2, 3] 
+
+------------------------------------------------------------------------------------------------------------------------
+
+28.	Which of these method is used to find out that a thread is still running or not?
+a) run()
+b) Alive()
+c) isAlive() : :: correct
+d) checkRun()
+
+------------------------------------------------------------------------------------------------------------------------
+
+class Test {
+   public static void main(String args[]) {
+     int arr[2];  
+     System.out.println(arr[0]);
+     System.out.println(arr[1]);
+   }
+}
+A. 0,0
+B. garbage value,garbage value
+C. compilation error  :: correct
+D  exception
+------------------------------------------------------------------------------------------------------------------------
+
+	public static void main(String[] args) {
+		System.out.println(getSomeNumber());
+	}
+
+	public static int getSomeNumber( ){
+		int x = 0;
+		try{
+			x=1;
+			return x;
+		} finally {
+			x=2;
+
+		}
+	}
+	
+	a) 2
+	b) 1 : correct
+	c) RunTimeException
+	d) Compilation Error
+------------------------------------------------------------------------------------------------------------------------
+r
+
