@@ -1,5 +1,5 @@
 What is Java -
-	Java is a High-level language. A High-level language cannot be run directly on a computer, first it has to be translated into a machine language by a program called Compiler. In Java source code is compiled to intermediate byte code, which is then interpreted and executed by a JVM
+	Java is a High-level programming language. A High-level language cannot be run directly on a computer, first it has to be translated into a machine language by a program called Compiler. In Java source code is compiled to intermediate byte code, which is then interpreted and executed by a JVM
 	Java is Object-Oriented
 	Java is a platform
 	
