@@ -1,1 +1,7 @@
 /.apt_generated/
+*.MF
+target/classes/META-INF/maven/com.kvvssut.learnings.java/JavaMainTesting/pom.properties
+target/classes/META-INF/maven/com.kvvssut.learnings.java/JavaMainTesting/pom.xml
+.classpath
+*.classpath
+*.classpath

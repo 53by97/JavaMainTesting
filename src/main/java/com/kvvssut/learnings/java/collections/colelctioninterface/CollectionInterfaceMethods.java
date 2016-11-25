@@ -62,6 +62,13 @@ public class CollectionInterfaceMethods {
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
+		// 0. Arrays.asList creates a wrapper list over the array. Operations on the list wrapper are propagated to the original array. 
+		String [] str = {"Srimant", "Sangita", "Smita"};
+		List<String> list = Arrays.asList(str);
+		// list.add(3, "Srikant");	// UnsupportedOperationException
+		list.set(2, "Srikant");
+		System.out.println(str.length + " Ele at 0th indesx is : " + str[2]);
+		
 		// 1. Correct way
 		List<? extends Object> l = Arrays.asList("zero", "one");
 		String[] a = l.toArray(new String[0]);

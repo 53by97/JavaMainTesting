@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 public class WriteToFile {
 
 	public static void main(String[] args) {
-		String filename = "D:\\Tech_Workspace\\Workspace_OldBooks\\JavaTuotrialWithJava8Examples\\src\\io\\basic\\Sample.txt";
+		String filename = "D:\\TechStuffs\\EclipseWorkspaces\\DefaultWorkspace\\JavaMainTesting\\src\\main\\java\\com\\kvvssut\\learnings\\java\\io\\basic\\Sample.txt";
 
 		System.out.print("Before: \n");
 		System.out.println(ReadFromFile.getTextFromFile(filename));

@@ -1,4 +1,4 @@
-package com.kvvssut.learnings.java.threads.advanced;
+package com.kvvssut.learnings.java.threads.basic;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
