@@ -30,16 +30,18 @@ public class ExecutorsDemo {
 			executor.submit(new NewTask());
 		}
 		executor.shutdown();
-		executor.awaitTermination(1l, TimeUnit.HOURS);
+		executor.awaitTermination(1l, TimeUnit.MINUTES);// Blocks until all tasks have completed execution after a shutdown request, or the timeout occurs, or the current thread is interrupted, whichever happens first.
 	}
 
-	private static void exectuingMultipleThreadsWithThreadPoolExecutor() {
+	private static void exectuingMultipleThreadsWithThreadPoolExecutor() throws InterruptedException {
 		BlockingQueue<Runnable> blockingQueue = new ArrayBlockingQueue<Runnable>(100);	// with ThreadPoolExecutor we can choose our implementation of the blocking queue and specify the keepAliveTime as convenient
 		ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(20, 50, 1l, TimeUnit.MINUTES, blockingQueue);
 		threadPoolExecutor.prestartAllCoreThreads();
 		for (int i = 0; i < 100; i++) {
 			threadPoolExecutor.execute(new NewTask());
 		}
+		threadPoolExecutor.shutdown();
+		threadPoolExecutor.awaitTermination(1l, TimeUnit.MINUTES);	// Blocks until all tasks have completed execution after a shutdown request, or the timeout occurs, or the current thread is interrupted, whichever happens first.
 	}
 
 }

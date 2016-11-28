@@ -254,6 +254,23 @@ Iterbale vs Iterator -
 		    E next();
 		    void remove();
 		}
+		
+Iterator vs ListIterator - 
+	We can use Iterator to traverse Set and List and also Map type of Objects in forward direction only.
+	Methods in Iterator:
+		hasNext()
+		next()
+		remove()
+	
+	While a ListIterator can be used to traverse for only List-type Objects in either directions.
+	Methods in ListIterator:
+		hasNext()
+		next()
+		previous()
+		hasPrevious()
+		remove()
+		nextIndex()
+		previousIndex()
 
 REST vs SOAP - 
 
@@ -305,9 +322,9 @@ HashMap vs HashTable vs ConcurrentHashMap -
 
 Fail-Fast iterators immediately throw ConcurrentModificationException if a collection is modified while iterating over it. Where as Fail-Safe iterators don’t throw any exceptions if a collection is modified while iterating over it. Because, they operate on the clone of the collection, not on the actual collection.
 
-ExectuorService vs ThreadPoolExecutor - 
-	
 
+
+In computer science, a priority queue is an abstract data type which is like a regular queue data structure, but where additionally each element has a "priority" associated with it. In a priority queue, an element with high priority is served before an element with low priority.
 
 Useful Links - 
 	http://stackoverflow.com/questions/11547458/what-is-the-difference-between-jvm-jdk-jre-openjdk
