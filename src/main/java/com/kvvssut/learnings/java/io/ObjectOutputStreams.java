@@ -31,7 +31,7 @@ public class ObjectOutputStreams {
 
 		ObjectOutputStream objectOutputStream = null;
 		try {
-			objectOutputStream = new ObjectOutputStream(new FileOutputStream(new File("../Interview/src/FileOS.txt"), true));
+			objectOutputStream = new ObjectOutputStream(new FileOutputStream(new File("../JavaMainTesting/src/FileOS.txt"), true));
 
 			for (CustomerData customerData : customers) {
 				objectOutputStream.writeObject(customerData);			// If CustomerData doesn't implement Serializable interface, errors in java.io.NotSerializableException 

@@ -11,7 +11,7 @@ public class ObjectInputStreams {
 	public static void main(String[] args) {
 		ObjectInputStream objectInputStream = null;
 		try {
-			objectInputStream = new ObjectInputStream(new FileInputStream(new File("../Interview/src/FileOS.txt")));
+			objectInputStream = new ObjectInputStream(new FileInputStream(new File("../JavaMainTesting/src/FileOS.txt")));
 
 			CustomerData cdata1 = (CustomerData) objectInputStream.readObject();
 			System.out.println(cdata1.toString());

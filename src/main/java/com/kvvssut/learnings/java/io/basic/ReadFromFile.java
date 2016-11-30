@@ -8,7 +8,7 @@ public class ReadFromFile {
 
 	public static void main(String[] args) {
 		System.out
-				.print(getTextFromFile("D:\\Tech_Workspace\\Workspace_OldBooks\\JavaTuotrialWithJava8Examples\\src\\io\\basic\\Sample.txt"));
+				.print(getTextFromFile("D:\\TechStuffs\\EclipseWorkspaces\\DefaultWorkspace\\JavaMainTesting\\src\\main\\java\\com\\kvvssut\\learnings\\java\\io\\basic\\Sample.txt"));
 	}
 
 	static String getTextFromFile(String filename) {
