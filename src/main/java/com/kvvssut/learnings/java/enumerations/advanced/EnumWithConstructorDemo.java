@@ -4,7 +4,7 @@ public class EnumWithConstructorDemo {
 
 	public static void main(String[] args) {
 		for (ColorWithConstructorEnum color : ColorWithConstructorEnum.values()) {
-			System.out.println(color.name());
+			System.out.println(color.name() + " - " + color.getColorText());
 		}
 
 		System.out.println("\nColor of enum element is : "

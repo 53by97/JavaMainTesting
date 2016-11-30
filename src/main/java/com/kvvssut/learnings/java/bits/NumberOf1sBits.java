@@ -3,7 +3,7 @@ package com.kvvssut.learnings.java.bits;
 public class NumberOf1sBits {
 
 	public static void main(String[] args) {
-		// count1sInBinaryRepresentaionOfANumber(35);
+		count1sInBinaryRepresentaionOfANumber(35);
 	}
 
 	private static void count1sInBinaryRepresentaionOfANumber(int num) {

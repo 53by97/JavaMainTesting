@@ -1,1 +1,9 @@
 /.apt_generated/
+/target/
+logs.txt
+.settings/
+*.springBeans
+*.tern-project
+*.project
+.classpath
+.gitignore
