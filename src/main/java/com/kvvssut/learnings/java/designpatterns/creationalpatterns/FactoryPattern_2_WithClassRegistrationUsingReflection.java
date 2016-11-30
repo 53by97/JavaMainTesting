@@ -1,5 +1,10 @@
 package com.kvvssut.learnings.java.designpatterns.creationalpatterns;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.Map;
+
 public class FactoryPattern_2_WithClassRegistrationUsingReflection {
 
 	/*
@@ -23,67 +28,44 @@ public class FactoryPattern_2_WithClassRegistrationUsingReflection {
 	 * 
 	 */
 
-	public class ProductFactory {
+	private static FactoryPattern_2_WithClassRegistrationUsingReflection instance = new FactoryPattern_2_WithClassRegistrationUsingReflection();
 
-		public Product createProduct(String productId) {
-			if (productId.equals("prod1")) {
-				return new OneProduct();
-			} else if (productId.equals("prod2")) {
-				return new AnotherProduct();
-			}
-			// so on for the other Ids
+	private Map<String, Class<? extends FactoryPattern_21_Product>> m_RegisteredProducts = new HashMap<String, Class<? extends FactoryPattern_21_Product>>();
 
-			return null; // if the id doesn't have any of the expected values
-		}
-
+	public void registerProduct(String productID, Class productClass) {
+		m_RegisteredProducts.put(productID, productClass);
 	}
 
-	public interface Product {
-		public String getProductId();
+	public FactoryPattern_21_Product createProduct(String productID) {
+		Class productClass = (Class) m_RegisteredProducts.get(productID);
+		Constructor productConstructor = null;
+		try {
+			productConstructor = productClass.getDeclaredConstructor(new Class[] { String.class });
+		} catch (NoSuchMethodException | SecurityException e) {
+			e.printStackTrace();
+		}
+		try {
+			return (FactoryPattern_21_Product) productConstructor.newInstance(new Object[] {});
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
+				| InvocationTargetException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
-	public class OneProduct implements Product {
-
-		@Override
-		public String getProductId() {
-			return "prod1";
-		}
-
-	}
-
-	public class AnotherProduct implements Product {
-
-		@Override
-		public String getProductId() {
-			return "prod2";
-		}
-
+	public static FactoryPattern_2_WithClassRegistrationUsingReflection getInstance() {
+		return instance;
 	}
 
 	/*
-	 * Applicability & Examples - For example a graphical application works with
-	 * shapes. In our implementation the drawing framework is the client and the
-	 * shapes are the products. All the shapes are derived from an abstract
-	 * shape class (or interface). The Shape class defines the draw and move
-	 * operations which must be implemented by the concrete shapes. Let's assume
-	 * a command is selected from the menu to create a new Circle. The framework
-	 * receives the shape type as a string parameter, it asks the factory to
-	 * create a new shape sending the parameter received from menu. The factory
-	 * creates a new circle and returns it to the framework, casted to an
-	 * abstract shape. Then the framework uses the object as casted to the
-	 * abstract class without being aware of the concrete object type.
-	 * 
-	 * The advantage is obvious: New shapes can be added without changing a
-	 * single line of code in the framework(the client code that uses the shapes
-	 * from the factory).
-	 * 
-	 * This implementation is the most simple and intuitive (Let's call it noob
-	 * implementation). The problem here is that once we add a new concrete
-	 * product call we should modify the Factory class. It is not very flexible
-	 * and it violates open close principle. Of course we can subclass the
-	 * factory class, but let's not forget that the factory class is usually
-	 * used as a singleton. Sub-classing it means replacing all the factory
-	 * class references everywhere through the code.
+	 * We can put the registration code anywhere in our code, but a convenient
+	 * place is inside the product class in a static constructor
 	 */
+
+	// Registration done outside of product classes
+	public static void main(String[] args) {
+		FactoryPattern_2_WithClassRegistrationUsingReflection.getInstance().registerProduct("Prod1",
+				FactoryPattern_22_OneProduct.class);
+	}
 
 }
