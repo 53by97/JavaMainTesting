@@ -1,4 +1,4 @@
-package com.kvvssut.learnings.java.collections.colelctioninterface;
+package com.kvvssut.learnings.java.collections.collectioninterface;
 
 import java.util.Arrays;
 import java.util.List;

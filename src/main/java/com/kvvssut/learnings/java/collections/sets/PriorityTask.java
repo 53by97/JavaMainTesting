@@ -1,6 +1,6 @@
 package com.kvvssut.learnings.java.collections.sets;
 
-import com.kvvssut.learnings.java.collections.colelctioninterface.Task;
+import com.kvvssut.learnings.java.collections.collectioninterface.Task;
 
 enum Priority {
 	HIGH, MEDIUM, LOW;

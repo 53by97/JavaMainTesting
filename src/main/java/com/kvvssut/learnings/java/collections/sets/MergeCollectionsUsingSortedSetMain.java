@@ -6,9 +6,9 @@ import java.util.Collections;
 import java.util.Set;
 import java.util.TreeSet;
 
-import com.kvvssut.learnings.java.collections.colelctioninterface.CodingTask;
-import com.kvvssut.learnings.java.collections.colelctioninterface.PhoneTask;
-import com.kvvssut.learnings.java.collections.colelctioninterface.Task;
+import com.kvvssut.learnings.java.collections.collectioninterface.CodingTask;
+import com.kvvssut.learnings.java.collections.collectioninterface.PhoneTask;
+import com.kvvssut.learnings.java.collections.collectioninterface.Task;
 
 public class MergeCollectionsUsingSortedSetMain {
 

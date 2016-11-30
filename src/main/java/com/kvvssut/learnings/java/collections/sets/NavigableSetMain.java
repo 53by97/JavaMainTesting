@@ -5,9 +5,9 @@ import java.util.Iterator;
 import java.util.NavigableSet;
 import java.util.TreeSet;
 
-import com.kvvssut.learnings.java.collections.colelctioninterface.CodingTask;
-import com.kvvssut.learnings.java.collections.colelctioninterface.EmptyTask;
-import com.kvvssut.learnings.java.collections.colelctioninterface.PhoneTask;
+import com.kvvssut.learnings.java.collections.collectioninterface.CodingTask;
+import com.kvvssut.learnings.java.collections.collectioninterface.EmptyTask;
+import com.kvvssut.learnings.java.collections.collectioninterface.PhoneTask;
 
 public class NavigableSetMain {
 

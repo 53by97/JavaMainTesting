@@ -1,4 +1,4 @@
-package com.kvvssut.learnings.java.collections.colelctioninterface;
+package com.kvvssut.learnings.java.collections.collectioninterface;
 
 public final class CodingTask extends Task {
 
