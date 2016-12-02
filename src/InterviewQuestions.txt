@@ -24,3 +24,5 @@ What are executors and how they provide synchronization?
 In web services how can we simultaneously produces both JSON as well as XML output?
 What is the difference between shallow copy and deep copy?
 How to make a class immutable?
+
+
