@@ -5,7 +5,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FactoryPattern_2_WithClassRegistrationUsingReflection {
+public class _t2_FactoryPattern_2_WithClassRegistrationUsingReflection {
 
 	/*
 	 * The standard implementation is the most simple and intuitive (Let's call
@@ -28,15 +28,15 @@ public class FactoryPattern_2_WithClassRegistrationUsingReflection {
 	 * 
 	 */
 
-	private static FactoryPattern_2_WithClassRegistrationUsingReflection instance = new FactoryPattern_2_WithClassRegistrationUsingReflection();
+	private static _t2_FactoryPattern_2_WithClassRegistrationUsingReflection instance = new _t2_FactoryPattern_2_WithClassRegistrationUsingReflection();
 
-	private Map<String, Class<? extends FactoryPattern_21_Product>> m_RegisteredProducts = new HashMap<String, Class<? extends FactoryPattern_21_Product>>();
+	private Map<String, Class<? extends _t2_FactoryPattern_21_Product>> m_RegisteredProducts = new HashMap<String, Class<? extends _t2_FactoryPattern_21_Product>>();
 
 	public void registerProduct(String productID, Class productClass) {
 		m_RegisteredProducts.put(productID, productClass);
 	}
 
-	public FactoryPattern_21_Product createProduct(String productID) {
+	public _t2_FactoryPattern_21_Product createProduct(String productID) {
 		Class productClass = (Class) m_RegisteredProducts.get(productID);
 		Constructor productConstructor = null;
 		try {
@@ -45,7 +45,7 @@ public class FactoryPattern_2_WithClassRegistrationUsingReflection {
 			e.printStackTrace();
 		}
 		try {
-			return (FactoryPattern_21_Product) productConstructor.newInstance(new Object[] {});
+			return (_t2_FactoryPattern_21_Product) productConstructor.newInstance(new Object[] {});
 		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException
 				| InvocationTargetException e) {
 			e.printStackTrace();
@@ -53,7 +53,7 @@ public class FactoryPattern_2_WithClassRegistrationUsingReflection {
 		return null;
 	}
 
-	public static FactoryPattern_2_WithClassRegistrationUsingReflection getInstance() {
+	public static _t2_FactoryPattern_2_WithClassRegistrationUsingReflection getInstance() {
 		return instance;
 	}
 
@@ -64,8 +64,8 @@ public class FactoryPattern_2_WithClassRegistrationUsingReflection {
 
 	// Registration done outside of product classes
 	public static void main(String[] args) {
-		FactoryPattern_2_WithClassRegistrationUsingReflection.getInstance().registerProduct("Prod1",
-				FactoryPattern_22_OneProduct.class);
+		_t2_FactoryPattern_2_WithClassRegistrationUsingReflection.getInstance().registerProduct("Prod1",
+				_t2_FactoryPattern_22_OneProduct.class);
 	}
 
 }

@@ -1,6 +1,6 @@
 package com.kvvssut.learnings.java.designpatterns.creationalpatterns;
 
-class FactoryPattern_24_Main {
+class _t2_FactoryPattern_24_Main {
 
 	/*
 	 * We have to make sure that the concrete product classes are loaded before

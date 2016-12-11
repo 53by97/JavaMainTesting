@@ -3,7 +3,7 @@ package com.kvvssut.learnings.java.designpatterns.creationalpatterns;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FactoryPattern_3_WithClassRegistrationWithoutReflection {
+public class _t2_FactoryPattern_3_WithClassRegistrationWithoutReflection {
 
 	/*
 	 * As we saw in the previous paragraph the factory object uses internally a
@@ -24,19 +24,19 @@ public class FactoryPattern_3_WithClassRegistrationWithoutReflection {
 	 * register concrete product objects instead of Class objects.
 	 */
 
-	private static FactoryPattern_3_WithClassRegistrationWithoutReflection instance = new FactoryPattern_3_WithClassRegistrationWithoutReflection();
+	private static _t2_FactoryPattern_3_WithClassRegistrationWithoutReflection instance = new _t2_FactoryPattern_3_WithClassRegistrationWithoutReflection();
 
-	private Map<String, FactoryPattern_31_Product> m_RegisteredProducts = new HashMap<String, FactoryPattern_31_Product>();
+	private Map<String, _t2_FactoryPattern_31_Product> m_RegisteredProducts = new HashMap<String, _t2_FactoryPattern_31_Product>();
 
-	public void registerProduct(String productID, FactoryPattern_31_Product p) {
+	public void registerProduct(String productID, _t2_FactoryPattern_31_Product p) {
 		m_RegisteredProducts.put(productID, p);
 	}
 
-	public FactoryPattern_31_Product createProduct(String productID) {
-		return ((FactoryPattern_31_Product) m_RegisteredProducts.get(productID)).createProduct();
+	public _t2_FactoryPattern_31_Product createProduct(String productID) {
+		return ((_t2_FactoryPattern_31_Product) m_RegisteredProducts.get(productID)).createProduct();
 	}
 
-	public static FactoryPattern_3_WithClassRegistrationWithoutReflection getInstance() {
+	public static _t2_FactoryPattern_3_WithClassRegistrationWithoutReflection getInstance() {
 		return instance;
 	}
 

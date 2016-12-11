@@ -1,6 +1,6 @@
 package com.kvvssut.learnings.java.designpatterns.creationalpatterns;
 
-public class SingletonPattern_2_WithLazyInitialization {
+public class _t1_SingletonPattern_2_WithLazyInitialization {
 
 	/*
 	 * Lazy instantiation using double locking mechanism.
@@ -22,18 +22,18 @@ public class SingletonPattern_2_WithLazyInitialization {
 	 * when it is needed.
 	 */
 
-	private static SingletonPattern_2_WithLazyInitialization instance;
+	private static _t1_SingletonPattern_2_WithLazyInitialization instance;
 
-	private SingletonPattern_2_WithLazyInitialization() {
+	private _t1_SingletonPattern_2_WithLazyInitialization() {
 		// initialization
 	}
 
-	public static SingletonPattern_2_WithLazyInitialization getInstance2() {
+	public static _t1_SingletonPattern_2_WithLazyInitialization getInstance2() {
 		if (instance == null) {
-			synchronized (SingletonPattern_2_WithLazyInitialization.class) {
+			synchronized (_t1_SingletonPattern_2_WithLazyInitialization.class) {
 				if (instance == null) {
 					System.out.println("getInstance(): First time getInstance was invoked!");
-					instance = new SingletonPattern_2_WithLazyInitialization();
+					instance = new _t1_SingletonPattern_2_WithLazyInitialization();
 				}
 			}
 		}

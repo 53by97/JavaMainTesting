@@ -1,6 +1,6 @@
 package com.kvvssut.learnings.java.designpatterns.creationalpatterns;
 
-public class FactoryPattern_1 {
+public class _t2_FactoryPattern_1 {
 
 	/*
 	 * Intent - creates objects without exposing the instantiation logic to the

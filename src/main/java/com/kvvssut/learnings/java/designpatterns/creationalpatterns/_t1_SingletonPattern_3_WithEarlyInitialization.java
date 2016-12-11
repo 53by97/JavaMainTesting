@@ -1,6 +1,6 @@
 package com.kvvssut.learnings.java.designpatterns.creationalpatterns;
 
-public class SingletonPattern_3_WithEarlyInitialization {
+public class _t1_SingletonPattern_3_WithEarlyInitialization {
 
 	/*
 	 * Early instantiation using implementation with static field
@@ -12,13 +12,13 @@ public class SingletonPattern_3_WithEarlyInitialization {
 	 * once this guarantee the uniqueness of the object.
 	 */
 
-	private static SingletonPattern_3_WithEarlyInitialization instance = new SingletonPattern_3_WithEarlyInitialization();
+	private static _t1_SingletonPattern_3_WithEarlyInitialization instance = new _t1_SingletonPattern_3_WithEarlyInitialization();
 
-	private SingletonPattern_3_WithEarlyInitialization() {
+	private _t1_SingletonPattern_3_WithEarlyInitialization() {
 		// initialization
 	}
 
-	public static SingletonPattern_3_WithEarlyInitialization getInstance() {
+	public static _t1_SingletonPattern_3_WithEarlyInitialization getInstance() {
 		return instance;
 	}
 

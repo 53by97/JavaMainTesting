@@ -1,6 +1,6 @@
 package com.kvvssut.learnings.java.designpatterns.creationalpatterns;
 
-public class SingletonPattern_1 {
+public class _t1_SingletonPattern_1 {
 
 	/*
 	 * Sometimes it's important to have only one instance for a class. Usually
@@ -23,15 +23,15 @@ public class SingletonPattern_1 {
 	 * unique instance which is accessed by the clients.
 	 */
 
-	private static SingletonPattern_1 instance;
+	private static _t1_SingletonPattern_1 instance;
 
-	private SingletonPattern_1() {
+	private _t1_SingletonPattern_1() {
 		// initialization
 	}
 
-	public static synchronized SingletonPattern_1 getInstance() {
+	public static synchronized _t1_SingletonPattern_1 getInstance() {
 		if (instance == null) {
-			instance = new SingletonPattern_1();
+			instance = new _t1_SingletonPattern_1();
 		}
 
 		return instance;

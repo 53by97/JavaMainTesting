@@ -2,7 +2,7 @@ package com.kvvssut.learnings.java.designpatterns.creationalpatterns;
 
 import java.io.Serializable;
 
-public class SingletonPattern_4_WithSerialization implements Serializable {
+public class _t1_SingletonPattern_4_WithSerialization implements Serializable {
 
 	/*
 	 * If the Singleton class implements the java.io.Serializable interface,
@@ -12,15 +12,15 @@ public class SingletonPattern_4_WithSerialization implements Serializable {
 	 */
 
 	private static final long serialVersionUID = -3082928116874914764L;
-	private static SingletonPattern_4_WithSerialization instance;
+	private static _t1_SingletonPattern_4_WithSerialization instance;
 
-	private SingletonPattern_4_WithSerialization() {
+	private _t1_SingletonPattern_4_WithSerialization() {
 		// initialization
 	}
 
-	public static synchronized SingletonPattern_4_WithSerialization getInstance() {
+	public static synchronized _t1_SingletonPattern_4_WithSerialization getInstance() {
 		if (instance == null) {
-			instance = new SingletonPattern_4_WithSerialization();
+			instance = new _t1_SingletonPattern_4_WithSerialization();
 		}
 
 		return instance;
