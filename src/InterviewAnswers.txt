@@ -21,7 +21,7 @@ Difference between java serialization and JSON string generation ?
 	Java serialization serializes to non-human readable format, where as json serialization serializes into human readable string format.
 	Java serialization is much slower as compared to Json serialization.
 	
-Differnce between JAX-WS and JAX-RS?
+Difference between JAX-WS and JAX-RS?
 	JAX-WS
 	Java API for the XML-Based Web Services - a standard way to develop a Web- Services in SOAP notation (Simple Object Access Protocol).
 	Calling of the Web Services is performed via remote procedure calls. For the exchange of information between the client and the Web Service is used SOAP protocol. Message exchange between the client and the server performed through XML- based SOAP messages.
