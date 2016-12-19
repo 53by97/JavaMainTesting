@@ -61,7 +61,19 @@ finalize() -
 	The general contract of {finalize} is that it is invoked if and when the JavaTM virtual machine has determined that there is no longer any means by which this object can be accessed by any thread that has not yet died, except as a result of an action taken by the
 	finalization of some other object or class which is ready to be finalized. The {finalize} method may take any action, including making this object available again to other threads; the usual purpose of {finalize}, however, is to perform cleanup actions before the object is irrevocably discarded.
 	The finalize method is never invoked more than once by a Java virtual machine for any given object.
-
+	
+sleep() vs wait() -
+	sleep() is a method which is used to hold the process for the time wanted but in case of wait() method thread goes in waiting state and it won’t come back automatically until we call the notify() or notifyAll().
+	A wait can be "woken up" by another thread calling notify on the monitor which is being waited on whereas a sleep cannot. Also a wait (and notify) must happen in a block synchronized on the monitor object whereas sleep does not.
+	The major difference is that wait() releases the lock or monitor while sleep() doesn’t releases any lock or monitor while waiting. 
+	synchronized(LOCK) {
+	    Thread.sleep(1000); // LOCK is held
+	}
+	synchronized(LOCK) {
+	    LOCK.wait(); // LOCK is not held
+	}
+	Wait is used for inter-thread communication while sleep is used to introduce pause on execution, generally.
+	
 Arrays.asList(ia) vs new ArrayList<Integer>(Arrays.asList(ia)) -
 	Arrays.asList takes an array and creates a wrapper that implements List<Integer>, which makes the original array available as a list. Nothing is copied and only a single wrapper object is created. Operations on the list wrapper are propagated to the original array. 
 	new ArrayList creates a full, independent copy of the original one. Although here you create the wrapper using Arrays.asList as well, it is used only during the construction of the new ArrayList and is garbage-collected afterwards.
@@ -96,6 +108,41 @@ Iterator vs ListIterator -
 		remove()
 		nextIndex()
 		previousIndex()
+		
+HashMap vs HashTable vs ConcurrentHashMap - 
+	╔═══════════════╦═══════════════════╦═══════════════════╦═════════════════════╗
+	║   Property    ║     HashMap       ║    Hashtable      ║  ConcurrentHashMap  ║
+	╠═══════════════╬═══════════════════╬═══════════════════╩═════════════════════╣ 
+	║      Null     ║     allowed       ║              not allowed                ║
+	║  values/keys  ║                   ║                                         ║
+	╠═══════════════╬═══════════════════╬═════════════════════════════════════════╣
+	║Is thread-safe ║       no          ║                  yes                    ║
+	╠═══════════════╬═══════════════════╬═══════════════════╦═════════════════════╣
+	║     Lock      ║       not         ║ locks the whole   ║ locks the portion   ║        
+	║  mechanism    ║    applicable     ║       map         ║                     ║ 
+	╠═══════════════╬═══════════════════╩═══════════════════╬═════════════════════╣
+	║   Iterator    ║               fail-fast               ║       fail-safe     ║ 
+	╚═══════════════╩═══════════════════════════════════════╩═════════════════════╝
+
+Fail-Fast iterators immediately throw ConcurrentModificationException if a collection is modified while iterating over it. Where as Fail-Safe iterators don’t throw any exceptions if a collection is modified while iterating over it. Because, they operate on the clone of the collection, not on the actual collection.
+
+In computer science, a priority queue is an abstract data type which is like a regular queue data structure, but where additionally each element has a "priority" associated with it. In a priority queue, an element with high priority is served before an element with low priority.
+		
+The servlet life cycle is managed by the servlet container. The life cycle contains the following steps:
+	Step 1 : Load Servlet Class.
+	Step 2 : Create Instance of Servlet.
+	Step 3 : Call the servlets init() method.
+	Step 4 : Call the servlets service() method.
+	Step 5 : Call the servlets destroy() method.
+		Step 1, 2 and 3 are executed only once, when the servlet is initially loaded. By default the servlet is not loaded until the first request is received for it. You can force the container to load the servlet when the container starts up though. See web.xml Servlet Configuration for more details about that.
+		Step 4 is executed multiple times - once for every HTTP request to the servlet. service() is the main method of handling the requests to the server. This method determines the type of the request (POST, GET, etc) and acts accordingly, by calling the specified methods like doPost() and doGet().
+		Step 5 is executed when the servlet container unloads the servlet.
+
+Web Server vs Application Server -
+	Web Server is designed to serve HTTP Content. App Server can also serve HTTP Content but is not limited to just HTTP. It can be provided other protocol support such as RMI/RPC.
+	Web Server is mostly designed to serve static content, though most Web Servers have plug-ins to support scripting languages like Perl, PHP, ASP, JSP etc. through which these servers can generate dynamic HTTP content.
+	Most of the application servers have Web Server as integral part of them, that means App Server can do whatever Web Server is capable of. Additionally App Server have components and features to support Application level services such as Connection Pooling, Object Pooling, Transaction Support, Messaging services etc.
+	As web servers are well suited for static content and App servers for dynamic content, most of the production environments have web server acting as reverse proxy to App server. That means while servicing a page request, static contents (such as images/Static HTML) are served by web server that interprets the request. Using some kind of filtering technique (mostly extension of requested resource), web server identifies dynamic content request and transparently forwards to App server
 
 REST vs SOAP - 
 
@@ -130,26 +177,257 @@ JNDI -
 	The Java Naming and Directory Interface (JNDI) is a Java API for a directory service that allows Java software clients to discover and look up data and objects via a name. Like all Java APIs that interface with host systems, JNDI is independent of the underlying implementation.
 	JNDI allows distributed applications to look up services in an abstract, resource-independent way.
 	
-HashMap vs HashTable vs ConcurrentHashMap - 
-	╔═══════════════╦═══════════════════╦═══════════════════╦═════════════════════╗
-	║   Property    ║     HashMap       ║    Hashtable      ║  ConcurrentHashMap  ║
-	╠═══════════════╬═══════════════════╬═══════════════════╩═════════════════════╣ 
-	║      Null     ║     allowed       ║              not allowed                ║
-	║  values/keys  ║                   ║                                         ║
-	╠═══════════════╬═══════════════════╬═════════════════════════════════════════╣
-	║Is thread-safe ║       no          ║                  yes                    ║
-	╠═══════════════╬═══════════════════╬═══════════════════╦═════════════════════╣
-	║     Lock      ║       not         ║ locks the whole   ║ locks the portion   ║        
-	║  mechanism    ║    applicable     ║       map         ║                     ║ 
-	╠═══════════════╬═══════════════════╩═══════════════════╬═════════════════════╣
-	║   Iterator    ║               fail-fast               ║       fail-safe     ║ 
-	╚═══════════════╩═══════════════════════════════════════╩═════════════════════╝
+web.xml -
+	<servlet-mapping>
+	    <servlet-name>javax.ws.rs.core.Application</servlet-name>
+	    <url-pattern>/kvvssut/*</url-pattern>
+	</servlet-mapping>
 
-Fail-Fast iterators immediately throw ConcurrentModificationException if a collection is modified while iterating over it. Where as Fail-Safe iterators don’t throw any exceptions if a collection is modified while iterating over it. Because, they operate on the clone of the collection, not on the actual collection.
+REST -
+	@Stateless
+	@Path("rest")
+	@Interceptors({ AmountValidatorInterceptor.class, PrefixInterceptor.class })
+	public class TransactionRest {	  	
+	
+	@PUT
+	@Path("/method/{param}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response method(@PathParam("param") String userName, RestRequestDTO restRequestDTO) {
+		return Response.status(Status.OK).entity(successful).build();
+	}
+	
+	@GET
+	@Path("/get/record")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response getRecord(@QueryParam("type") String type, @QueryParam("code") String code) {
+		return Response.status(Status.OK).entity(successful).build();
+	}
+	
+JMS -
+	 <subsystem xmlns="urn:jboss:domain:messaging:1.1">
+            <hornetq-server>
+                <persistence-enabled>true</persistence-enabled>
+                <journal-file-size>102400</journal-file-size>
+                <journal-min-files>2</journal-min-files>
 
+                <connectors>
+                    <netty-connector name="netty" socket-binding="messaging"/>
+                    <netty-connector name="netty-throughput" socket-binding="messaging-throughput">
+                        <param key="batch-delay" value="50"/>
+                    </netty-connector>
+                    <in-vm-connector name="in-vm" server-id="0"/>
+                </connectors>
 
+                <acceptors>
+                    <netty-acceptor name="netty" socket-binding="messaging"/>
+                    <netty-acceptor name="netty-throughput" socket-binding="messaging-throughput">
+                        <param key="batch-delay" value="50"/>
+                        <param key="direct-deliver" value="false"/>
+                    </netty-acceptor>
+                    <in-vm-acceptor name="in-vm" server-id="0"/>
+                </acceptors>
 
-In computer science, a priority queue is an abstract data type which is like a regular queue data structure, but where additionally each element has a "priority" associated with it. In a priority queue, an element with high priority is served before an element with low priority.
+                <security-settings>
+                    <security-setting match="#">
+                        <permission type="send" roles="guest"/>
+                        <permission type="consume" roles="guest"/>
+                        <permission type="createNonDurableQueue" roles="guest"/>
+                        <permission type="deleteNonDurableQueue" roles="guest"/>
+                    </security-setting>
+                </security-settings>
 
+                <address-settings>
+                    <address-setting match="#">
+                        <dead-letter-address>jms.queue.DLQ</dead-letter-address>
+                        <expiry-address>jms.queue.ExpiryQueue</expiry-address>
+                        <redelivery-delay>0</redelivery-delay>
+                        <max-size-bytes>10485760</max-size-bytes>
+                        <address-full-policy>BLOCK</address-full-policy>
+                        <message-counter-history-day-limit>10</message-counter-history-day-limit>
+                    </address-setting>
+                </address-settings>
+
+                <jms-connection-factories>
+                    <connection-factory name="InVmConnectionFactory">
+                        <connectors>
+                            <connector-ref connector-name="in-vm"/>
+                        </connectors>
+                        <entries>
+                            <entry name="java:/ConnectionFactory"/>
+                        </entries>
+                    </connection-factory>
+                    <connection-factory name="RemoteConnectionFactory">
+                        <connectors>
+                            <connector-ref connector-name="netty"/>
+                        </connectors>
+                        <entries>
+                            <entry name="RemoteConnectionFactory"/>
+                            <entry name="java:jboss/exported/jms/RemoteConnectionFactory"/>
+                        </entries>
+                    </connection-factory>
+                    <pooled-connection-factory name="hornetq-ra">
+                        <transaction mode="xa"/>
+                        <connectors>
+                            <connector-ref connector-name="in-vm"/>
+                        </connectors>
+                        <entries>
+                            <entry name="java:/JmsXA"/>
+                        </entries>
+                    </pooled-connection-factory>
+                </jms-connection-factories>
+
+                <jms-destinations>
+                    <jms-queue name="restTestQueue">
+                        <entry name="queue/restTestQueue"/>
+                        <entry name="java:jboss/exported/jms/queue/restTestQueue"/>
+                    </jms-queue>
+                </jms-destinations>
+            </hornetq-server>
+        </subsystem>
+        
+	Producer -
+        public class RestQueueProducerImpl implements RestQueueProducer {
+
+			@Resource(mappedName = "java:/ConnectionFactory")
+			private ConnectionFactory connectionFactory;
+		
+			@Resource(mappedName = "java:/queue/restTestQueue")
+			private Queue queue;
+			
+			@Override
+			public void putMessage(RestQueuePayload restQueueDTO) throws Exception {
+				
+				Session session = null;
+				MessageProducer messageProducer = null;
+				Connection connection = null;
+		
+				try {
+					connection = this.connectionFactory.createConnection();
+					session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+					messageProducer = session.createProducer(queue);
+					connection.start();
+		
+					TextMessage textMessage = session.createTextMessage(objectMapper.writeValueAsString(restQueueDTO));
+					String executionTime = configurationService.getValueByConfigurationKey(RestQueueConstants.CONFIG_QUEUE_EXECUTION_TIME);
+					long timeInMilliSeconds = this.calculateScheduledTime(Integer.parseInt(executionTime));
+					textMessage.setLongProperty("_HQ_SCHED_DELIVERY", timeInMilliSeconds); 	// It's the delivery time, not delay!
+					messageProducer.send(textMessage);
+				} finally {
+					if (messageProducer != null) {
+						messageProducer.close();
+					} 
+					if (session != null) {
+						session.close();
+					}
+					if (connection != null) {
+						connection.close();
+					}
+				}
+			}
+			
+	Consumer -
+		@MessageDriven(activationConfig = {
+		@ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
+		@ActivationConfigProperty(propertyName = "destination", propertyValue = "queue/restTestQueue"),
+		@ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge") })
+		public class RestQueueConsumerImpl implements MessageListener {
+		
+			@Override
+			public void onMessage(Message message) {
+				RestQueuePayload restQueuePayload = null;
+		
+				if (message instanceof TextMessage) {
+					try {
+						String textMessage = ((TextMessage) message).getText();
+						restQueuePayload = objectMapper.readValue(textMessage, RestQueuePayload.class);
+						this.logConsumingMessage(message);
+						restService.verifyUserDetails(restQueuePayload.getUserName(), restQueuePayload.getAmount());
+					} catch (JMSException | IOException exception) {
+						exception.printStackTrace();
+					}
+				}
+			}
+		}
+			
+persistence.xml -
+	<persistence-unit name="restapplication_persistence" transaction-type="JTA">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<jta-data-source>java:jboss/datasources/MySQL_RESTApplication</jta-data-source>
+		<class>com.kvvssut.model.RestData</class>
+		<class>com.kvvssut.model.ConfigurationData</class>
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+			<property name="hibernate.hbm2ddl.auto" value="none" />
+			<property name="hibernate.show-sql" value="true" />
+		</properties>
+	</persistence-unit>
+	
+JPA -
+	@Entity
+	@Table(name = "restdata")
+	public class RestData implements Serializable {
+	
+		private static final long serialVersionUID = 1L;
+	
+		@Id
+		@GeneratedValue(strategy = GenerationType.IDENTITY)
+		private long id;
+	
+		@Column(name = "username", nullable = false, length = 59)
+		private String userName;
+	
+		@Column(precision = 19)
+		private BigDecimal totalBalance;
+	
+		@Temporal(TemporalType.TIMESTAMP)
+		private Date createdAt;
+	}
+	
+	public class RestControllerImpl implements RestController {
+
+		@PersistenceContext(unitName = "restapplication_persistence", type = PersistenceContextType.TRANSACTION)
+		private EntityManager entityManager;
+		
+		@Inject
+		private CacheManager cacheManager;
+	
+		@Override
+		public void updateBalanceByUserName(String userName, BigDecimal amount) {
+			try {
+				Query query = entityManager.createQuery(
+						"update RestData rd set rd.totalBalance = rd.totalBalance - :AMT where rd.userName = :UNAME");
+				query.setParameter("AMT", amount);
+				query.setParameter("UNAME", userName);
+				LOGGER.info("No. of rows updated: {}", query.executeUpdate());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		@Override
+		public String getValueForKey(String configName) {
+			String value = null;
+			Object object = this.cacheManager.get(RestQueueConstants.CACHE_CONFIGURATION_NAME
+			          + configName);
+	
+			if (object != null) {
+				value = String.valueOf(object);
+			} else {
+				try {
+					value = ((ConfigurationData) entityManager.find(ConfigurationData.class,
+					          configName)).getConfigValue();
+					System.out.println("cached");
+					this.cacheManager.put(RestQueueConstants.CACHE_CONFIGURATION_NAME + configName,
+					          value);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+	
+			return value;
+		}
+	}
+	
 Useful Links - 
 	http://stackoverflow.com/questions/11547458/what-is-the-difference-between-jvm-jdk-jre-openjdk
