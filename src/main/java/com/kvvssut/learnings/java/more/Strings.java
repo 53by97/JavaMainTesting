@@ -1,7 +1,5 @@
 package com.kvvssut.learnings.java.more;
 
-import java.util.Arrays;
-
 public class Strings {
 
 	public static void main(String[] args) {

@@ -1,10 +1,10 @@
 package com.kvvssut.learnings.java.threads.basic;
 
-public class DeadlockWithAlternateObjectsMethodCalls {
+public class DeadlockWithSynchronizedMethodCalls {
 
 	public static void main(String[] args) {
-		DeadlockWithAlternateObjectsMethodCalls obj1 = new DeadlockWithAlternateObjectsMethodCalls();
-		DeadlockWithAlternateObjectsMethodCalls obj2 = new DeadlockWithAlternateObjectsMethodCalls();
+		DeadlockWithSynchronizedMethodCalls obj1 = new DeadlockWithSynchronizedMethodCalls();
+		DeadlockWithSynchronizedMethodCalls obj2 = new DeadlockWithSynchronizedMethodCalls();
 
 		Runnable runnable1 = new Runnable() {
 
@@ -35,7 +35,7 @@ public class DeadlockWithAlternateObjectsMethodCalls {
 		t2.start();
 	}
 
-	public synchronized void checkOther(DeadlockWithAlternateObjectsMethodCalls other) {
+	public synchronized void checkOther(DeadlockWithSynchronizedMethodCalls other) {
 		System.out.println("Inside method for : " + Thread.currentThread().getName());
 		try {
 			Thread.sleep(1000);
@@ -43,11 +43,11 @@ public class DeadlockWithAlternateObjectsMethodCalls {
 			e.printStackTrace();
 		}
 		System.out.println("Before performing action for : " + Thread.currentThread().getName());
-		other.performAction();		// waits infinitely for the other to release lock
+		other.performAction(); // waits infinitely for the other to release lock
 		System.out.println("After performing action for : " + Thread.currentThread().getName());
 	}
 
-	public synchronized void performAction() { 	// never reaches to this point as both wait for the other to get released
+	public synchronized void performAction() { // never reaches to this point as both wait for the other to get released
 		System.out.println("Performed action for : " + Thread.currentThread().getName());
 	}
 

@@ -1,7 +1,5 @@
 package com.kvvssut.learnings.java.oopsconcepts;
 
-import javax.management.relation.RoleStatus;
-
 public class ArrayStuffs {
 
 	static int arr[] = new int[6]; // basic initialization way - makes the array

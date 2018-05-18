@@ -1,15 +1,8 @@
 package com.kvvssut.learnings.java.more;
 
 import java.io.Serializable;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.List;
 import java.util.RandomAccess;
-import java.util.SortedMap;
-import java.util.SortedSet;
 
 public class Interfaces {
 

@@ -78,7 +78,7 @@ public class JavaMemoryMgmt {
 	 * JIT is the part of the Java Virtual Machine (JVM) that is used to speed
 	 * up the execution time. JIT compiles parts of the byte code that have
 	 * similar functionality at the same time, and hence reduces the amount of
-	 * time needed for compilation. Here the term “compiler” refers to a
+	 * time needed for compilation. Here the term compiler refers to a
 	 * translator from the instruction set of a Java virtual machine (JVM) to
 	 * the instruction set of a specific CPU.
 	 * 
@@ -95,7 +95,7 @@ public class JavaMemoryMgmt {
 	 * memory is also called as shared memory. As this is the place where
 	 * multiple threads will share the same data.
 	 * 
-	 * Non-Heap Memory - It comprises of ‘Method Area’ and other memory required
+	 * Non-Heap Memory - It comprises of Method Area and other memory required
 	 * for internal processing. It stores runtime constants, static fields, code
 	 * for methods and constructors.
 	 * 
@@ -105,7 +105,7 @@ public class JavaMemoryMgmt {
 	 * Runtime Constant Pool - A run time constant pool is a per-class or
 	 * per-interface run time representation of the constant_pool table in a
 	 * class file. Each runtime constant pool is allocated from the Java virtual
-	 * machine’s method area.
+	 * machines method area.
 	 * 
 	 * Java Stacks and Frames - Java stacks are created private to a thread.
 	 * Every thread will have a program counter (PC) and a java stack. PC will

@@ -4,10 +4,10 @@ public class OOADPrinciples {
 
 	// Abstraction
 	/*
-	 * “An abstraction denotes the essential characteristics of an object that
+	 * An abstraction denotes the essential characteristics of an object that
 	 * distinguish it from all other kinds of objects and thus provide crisply
 	 * defined conceptual boundaries, relative to the perspective of the
-	 * viewer.”
+	 * viewer.
 	 * 
 	 * Abstraction means to focus on the essential features of an element or
 	 * object in OOP, ignoring its extraneous or accidental properties. The
@@ -51,8 +51,8 @@ public class OOADPrinciples {
 
 	// Modularity
 	/*
-	 * “Modularity is the property of a system that has been decomposed into a
-	 * set of cohesive and loosely coupled modules.”
+	 * ï¿½Modularity is the property of a system that has been decomposed into a
+	 * set of cohesive and loosely coupled modules.
 	 * 
 	 * Modularity is the process of decomposing a problem (program) into a set
 	 * of modules so as to reduce the overall complexity of the problem.
@@ -60,24 +60,24 @@ public class OOADPrinciples {
 
 	// Hierarchy
 	/*
-	 * “Hierarchy is the ranking or ordering of abstraction”. Through hierarchy,
+	 * Hierarchy is the ranking or ordering of abstraction. Through hierarchy,
 	 * a system can be made up of interrelated subsystems, which can have their
 	 * own subsystems and so on until the smallest level components are reached.
-	 * It uses the principle of “divide and conquer”. Hierarchy allows code
+	 * It uses the principle of divide and conquer. Hierarchy allows code
 	 * re-usability.
 	 * 
 	 * The two types of hierarchies in OOA are:
 	 * 
-	 * “IS–A” hierarchy : It defines the hierarchical relationship in
+	 * ISA hierarchy : It defines the hierarchical relationship in
 	 * inheritance, whereby from a super-class, a number of subclasses may be
 	 * derived which may again have subclasses and so on. For example, if we
-	 * derive a class Rose from a class Flower, we can say that a rose “is–a”
+	 * derive a class Rose from a class Flower, we can say that a rose isa
 	 * flower.
 	 * 
-	 * “PART–OF” hierarchy : It defines the hierarchical relationship in
+	 * PARTOF hierarchy : It defines the hierarchical relationship in
 	 * aggregation by which a class may be composed of other classes. For
 	 * example, a flower is composed of sepals, petals, stamens, and carpel. It
-	 * can be said that a petal is a “part–of” flower.
+	 * can be said that a petal is a partof flower.
 	 */
 
 	// Typing
@@ -119,9 +119,9 @@ public class OOADPrinciples {
 	// Persistence
 	/*
 	 * An object occupies a memory space and exists for a particular period of
-	 * time. In traditional programming, the lifespan of an object was typically
-	 * the lifespan of the execution of the program that created it. In files or
-	 * databases, the object lifespan is longer than the duration of the process
+	 * time. In traditional programming, the life span of an object was typically
+	 * the life span of the execution of the program that created it. In files or
+	 * databases, the object life span is longer than the duration of the process
 	 * creating the object. This property by which an object continues to exist
 	 * even after its creator ceases to exist is known as persistence.
 	 */

@@ -1,7 +1,5 @@
 package com.kvvssut.learnings.java.generics.wildcards;
 
-import com.kvvssut.learnings.java.generics.wildcards.ICartridge;
-
 public class Main {
 
 	public static void main(String[] args) {

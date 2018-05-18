@@ -2,9 +2,6 @@ package com.kvvssut.learnings.java.oopsconcepts;
 
 import java.io.IOException;
 
-import com.kvvssut.learnings.java.oopsconcepts.OverridingAdvancedConcepts.Child;
-import com.kvvssut.learnings.java.oopsconcepts.OverridingAdvancedConcepts.Parent;
-
 public class OverridingConcepts {
 
 	class Animal {

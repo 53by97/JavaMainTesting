@@ -23,9 +23,9 @@ Difference between java serialization and JSON string generation ?
 	
 Difference between JAX-WS and JAX-RS?
 	JAX-WS
-	Java API for the XML-Based Web Services - a standard way to develop a Web- Services in SOAP notation (Simple Object Access Protocol).
+	Java API for the XML-Based Web Services - a standard way to develop a Web-Services in SOAP notation (Simple Object Access Protocol).
 	Calling of the Web Services is performed via remote procedure calls. For the exchange of information between the client and the Web Service is used SOAP protocol. Message exchange between the client and the server performed through XML- based SOAP messages.
-	Clients of the JAX-WS Web- Service need a WSDL file to generate executable code that the clients can use to call Web- Service.
+	Clients of the JAX-WS Web-Service need a WSDL file to generate executable code that the clients can use to call Web-Service.
 	JAX-RS 
 	Java API for RESTful Web Services. RESTful Web Services are represented as resources and can be identified by Uniform Resource Identifiers (URI). 
 	Remote procedure call in this case is represented a HTTP- request and the necessary data is passed as parameters of the query. 
@@ -147,10 +147,10 @@ Web Server vs Application Server -
 REST vs SOAP - 
 
 	What is a REST Web Service - The acronym REST stands for Representational State Transfer, this basically means that each unique URL is a representation of some object. 
-								You can get the contents of that object using an HTTP GET, to delete it, you then might use a POST, PUT, or DELETE to modify the object (in practice most of the services use a POST for this).
+								You can get the contents of that object using an HTTP GET, you then might use a POST, PUT, or DELETE to modify the object (in practice most of the services use a POST for this).
 	Who's using REST? -  All of Yahoo's web services use REST, including Flickr, del.icio.us API uses it, pubsub, bloglines, technorati, and both eBay, and Amazon have web services for both REST and SOAP.
 	
-	Who's using SOAP? -  Google seams to be consistent in implementing their web services to use SOAP, with the exception of Blogger, which uses XML-RPC. You will find SOAP web services in lots of enterprise software as well.
+	Who's using SOAP? -  Google seems to be consistent in implementing their web services to use SOAP, with the exception of Blogger, which uses XML-RPC. You will find SOAP web services in lots of enterprise software as well.
 	
 	As you may have noticed the companies I mentioned that are using REST api's haven't been around for very long, and their apis came out this year mostly. So REST is definitely the trendy way to create a web service. 
 		The main advantages of REST web services are:

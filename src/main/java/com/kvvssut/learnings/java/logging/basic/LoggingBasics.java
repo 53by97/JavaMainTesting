@@ -10,26 +10,26 @@ import org.slf4j.LoggerFactory;
 
 public class LoggingBasics {
 	public static final Logger LOGGER = LoggerFactory.getLogger(LoggingBasics.class);
-	
+
 	public static void main(String[] args) {
 		LOGGER.info("{}{}{}{}", "Inserted...", "sri", " Review Id : ", "mant");
-		
-		List list = new ArrayList();
-		
+
+		final List<Object> list = new ArrayList<>();
+
 		list.add(1);
 		list.add("Srimant");
 		list.add("Sahu");
-		
+
 		try {
-			Timestamp startTime=new Timestamp(new Date().getTime());
+			final Timestamp startTime = new Timestamp(new Date().getTime());
 			LOGGER.info("StartTime : {}", list);
-			
+
 			Integer i = null;
 			i.divideUnsigned(0, 0);
 		} catch (Exception e) {
-			LOGGER.error("{}{}",e.getMessage(), "working");
+			LOGGER.error("{}{}", e.getMessage(), "working");
 		}
-		
+
 	}
 
 }
